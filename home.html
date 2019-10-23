@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hot Restaurant</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+      <!-- title -->
+        <div class="jumbotron">
+            <h1 class="display-4">Hot Restaurant!</h1>
+            <!-- notification of tables available -->
+            <p class="lead">We only have 5 tables! Book your seat before they all are gone!</p>
+        
+            <!-- button for view tables -->
+            <a id="view" class="btn btn-primary btn-lg" href="tables" role="button">View Tables</a>
+            <!-- button for making reservations -->
+            <a id="reserve" class="btn btn-danger btn-lg" href="reserve" role="button">Make Reservation</a>
+          </div>
+          <div>
+            <a href="#" class="text-decoration-none">API Table Link</a> <a href="#" class="text-decoration-none">API Wait List</a>
+            
+          </div>
+
+    </div>
+
+    <script type="text/javascript">
+    //script will add a new reservation and update the view reservations page
+    $("#add-btn").on("click", function (event) {
+            event.preventDefault();
+            var newCustomer = {
+                name: $("#name").val().trim(),
+                email: $("#email").val().trim(),
+                phoneNumber: $("#phoneNumber").val().trim(),
+                uniqueID: $("#uniqueID").val().trim()
+            };
+
+            $.post(customers, newcustomer)
+            .then(function(data){
+                console.log("add.html", data);
+                alert("Adding your reservation!")
+            });
+        });       
+    
+    </script>
+    
+</body>
+</html>
+
